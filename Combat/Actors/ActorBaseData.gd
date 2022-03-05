@@ -11,6 +11,7 @@ export var inteligence : int = 3
 export var defense : int = 2
 export var resistence : int = 2
 export var dexterity : int = 4
+export var luck : int = 3
 export(Array, Resource) var base_attack = [
 	preload("res://Combat/Skills/BaseAttack_LEFT.tres"),
 	preload("res://Combat/Skills/BaseAttack_RIGHT.tres"),

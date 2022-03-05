@@ -77,8 +77,7 @@ func _on_Button_useSkill_pressed(_target:String, _energy_price:int) -> void:
 		for _index in len(controller_actor.skills[0].targets):
 			yield(get_tree().create_timer(1.0), "timeout")
 			var _local = controller_actor.skills[0].targets[_index]
-			var _multi : float = controller_actor.skills[0].multiply[_index]
-			emit_signal("attack_enemy", _local, _multi)
-				
+			var _skill_damage : float = controller_actor.skills[0].skill_damage[_index]
+			emit_signal("attack_enemy", _local, _skill_damage)
 		
 		_on_ButtonEndTurn_pressed()

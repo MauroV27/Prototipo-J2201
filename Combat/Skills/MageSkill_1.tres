@@ -8,4 +8,4 @@ skill_name = "Mana explode"
 skill_description = "Apply damage to all enemys."
 energy_cost = 6
 targets = [ "LEFT", "RIGHT", "TOP", "BOTTOM" ]
-multiply = [ 0.5, 0.5, 0.5, 0.5 ]
+skill_damage = [ 2.0, 2.0, 2.0, 2.0 ]

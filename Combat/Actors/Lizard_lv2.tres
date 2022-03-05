@@ -19,6 +19,7 @@ inteligence = 3
 defense = 2
 resistence = 4
 dexterity = 4
+luck = 3
 base_attack = [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ) ]
 sprite = ExtResource( 2 )
 skills = [  ]

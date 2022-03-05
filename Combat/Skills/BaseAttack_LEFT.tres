@@ -8,4 +8,4 @@ skill_name = "Attack"
 skill_description = ""
 energy_cost = 4
 targets = [ "LEFT" ]
-multiply = [ 1.0 ]
+skill_damage = [ 4.0 ]
