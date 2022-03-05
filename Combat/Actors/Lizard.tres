@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://Combat/Actors/ActorBaseData.gd" type="Script" id=1]
+[ext_resource path="res://Assets/lizard_m_idle_anim_f0.png" type="Texture" id=2]
+[ext_resource path="res://Combat/Skills/BaseAttack_LEFT.tres" type="Resource" id=3]
+[ext_resource path="res://Combat/Skills/BaseAttack_BOTTOM.tres" type="Resource" id=4]
+[ext_resource path="res://Combat/Skills/BaseAttack_TOP.tres" type="Resource" id=5]
+[ext_resource path="res://Combat/Skills/BaseAttack_RIGHT.tres" type="Resource" id=6]
+
+[resource]
+script = ExtResource( 1 )
+name = "Lizard"
+level = 1
+max_life = 10
+life = 10
+energy = 4
+force = 3
+inteligence = 3
+defense = 2
+resistence = 2
+dexterity = 3
+base_attack = [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ) ]
+sprite = ExtResource( 2 )
+skills = [  ]

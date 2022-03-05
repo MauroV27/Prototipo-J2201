@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=8 format=2]
+
+[ext_resource path="res://Combat/Actors/ActorBaseData.gd" type="Script" id=1]
+[ext_resource path="res://Assets/wizzard_m_hit_anim_f0.png" type="Texture" id=2]
+[ext_resource path="res://Combat/Skills/BaseAttack_LEFT.tres" type="Resource" id=3]
+[ext_resource path="res://Combat/Skills/MageSkill_1.tres" type="Resource" id=4]
+[ext_resource path="res://Combat/Skills/BaseAttack_BOTTOM.tres" type="Resource" id=5]
+[ext_resource path="res://Combat/Skills/BaseAttack_TOP.tres" type="Resource" id=6]
+[ext_resource path="res://Combat/Skills/BaseAttack_RIGHT.tres" type="Resource" id=7]
+
+[resource]
+script = ExtResource( 1 )
+name = "Mage"
+level = 1
+max_life = 8
+life = 8
+energy = 6
+force = 3
+inteligence = 5
+defense = 2
+resistence = 4
+dexterity = 6
+base_attack = [ ExtResource( 3 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ) ]
+sprite = ExtResource( 2 )
+skills = [ ExtResource( 4 ) ]

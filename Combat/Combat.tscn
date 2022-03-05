@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Combat/Elements/ActorsController.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Combat/Combat.gd" type="Script" id=2]
+[ext_resource path="res://Combat/Actors/Lizard.tres" type="Resource" id=3]
+[ext_resource path="res://Combat/Actors/Knight.tres" type="Resource" id=4]
+[ext_resource path="res://Combat/PlayerControl.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Combat/Actors/Lizard_lv2.tres" type="Resource" id=6]
+[ext_resource path="res://Combat/Actors/Mage.tres" type="Resource" id=7]
+[ext_resource path="res://Combat/EnemysController.gd" type="Script" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "StartCombat"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_wait_to_inicialize"
+} ]
+}
+
+[node name="Combat" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerActors" parent="." instance=ExtResource( 1 )]
+margin_left = 96.0
+margin_top = 96.0
+margin_right = 96.0
+margin_bottom = 96.0
+actor_left = ExtResource( 7 )
+actor_right = ExtResource( 4 )
+actor_top = ExtResource( 4 )
+actor_bottom = ExtResource( 4 )
+
+[node name="EnemyActors" parent="." instance=ExtResource( 1 )]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -608.0
+margin_top = -264.0
+margin_right = -96.0
+margin_bottom = 156.0
+rect_pivot_offset = Vector2( 256, 0 )
+actor_left = ExtResource( 3 )
+actor_right = ExtResource( 6 )
+actor_top = ExtResource( 3 )
+actor_bottom = ExtResource( 3 )
+flip_sprite = true
+
+[node name="PlayerControl" parent="." instance=ExtResource( 5 )]
+
+[node name="EnemysController" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/StartCombat = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="enemy_exit_battle" from="." to="PlayerControl" method="_on_Combat_enemy_exit_battle"]
+[connection signal="player_turn" from="." to="PlayerControl" method="_on_Combat_player_turn"]
+[connection signal="attack_enemy" from="PlayerControl" to="." method="_on_PlayerControl_attack_enemy"]
+[connection signal="end_turn" from="PlayerControl" to="." method="_on_PlayerControl_end_turn"]

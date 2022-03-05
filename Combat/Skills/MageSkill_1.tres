@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Combat/Skills/SkillBaseData.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+skill_name = "Mana explode"
+skill_description = "Apply damage to all enemys."
+energy_cost = 6
+targets = [ "LEFT", "RIGHT", "TOP", "BOTTOM" ]
+multiply = [ 0.5, 0.5, 0.5, 0.5 ]
